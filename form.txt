@@ -1,0 +1,228 @@
+      <div class="input-wrap bg-white p-3 rounded-md">
+                                    <div class="flex justify-center mb-3">
+                                        <p class="font-poppins text-slate-700">Cari sekarang yuk, sekolah mana yang
+                                            ingin kamu cari </p>
+                                    </div>
+                                    <div class="w-full grid grid-cols-2 gap-5">
+                                        <!-- Input Kabupaten/Kota -->
+                                        <div class="relative">
+                                            <label for="kabupaten" class="block text-sm font-medium text-gray-700 mb-2">
+                                                Kabupaten/Kota
+                                            </label>
+                                            <div class="relative">
+                                                <input id="kabupaten" type="text"
+                                                    placeholder="-- Pilih Kabupaten/Kota --"
+                                                    class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                                    onclick="toggleDropdown('kabupaten')" readonly />
+                                                <i id="kabupaten-icon"
+                                                    class="bx bx-chevron-down absolute top-3 right-4 text-gray-500 text-2xl transition-transform duration-300"></i>
+                                            </div>
+                                            <div id="kabupaten-dropdown"
+                                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-md mt-1 hidden opacity-0 transform scale-95 transition-all duration-300">
+                                                <input type="text" placeholder="Cari Kabupaten/Kota..."
+                                                    class="w-full border-b border-gray-300 py-2 px-4 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                                    oninput="filterDropdown('kabupaten')" />
+                                                <ul class="max-h-40 overflow-y-auto" id="kabupaten-list">
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('kabupaten', 'Prov. Aceh - Kab. Aceh Barat')">
+                                                        Prov. Aceh - Kab. Aceh Barat
+                                                    </li>
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('kabupaten', 'Prov. Aceh - Kab. Aceh Barat Daya')">
+                                                        Prov. Aceh - Kab. Aceh Barat Daya
+                                                    </li>
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('kabupaten', 'Prov. Aceh - Kab. Aceh Besar')">
+                                                        Prov. Aceh - Kab. Aceh Besar
+                                                    </li>
+                                                    <!-- Opsi batalkan pilihan -->
+                                                    <li class="p-2 bg-red-100 text-red-600 font-bold hover:bg-red-200 cursor-pointer"
+                                                        onclick="clearOption('kabupaten')">
+                                                        Batalkan Pilihan
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- Input Kecamatan -->
+                                        <div class="relative">
+                                            <label for="kecamatan" class="block text-sm font-medium text-gray-700 mb-2">
+                                                Kecamatan
+                                            </label>
+                                            <div class="relative">
+                                                <input id="kecamatan" type="text" placeholder="-- Pilih Kecamatan --"
+                                                    class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                                    onclick="toggleDropdown('kecamatan')" readonly />
+                                                <i id="kecamatan-icon"
+                                                    class="bx bx-chevron-down absolute top-3 right-4 text-gray-500 text-2xl transition-transform duration-300"></i>
+                                            </div>
+                                            <div id="kecamatan-dropdown"
+                                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-md mt-1 hidden opacity-0 transform scale-95 transition-all duration-300">
+                                                <input type="text" placeholder="Cari Kecamatan..."
+                                                    class="w-full border-b border-gray-300 py-2 px-4 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                                    oninput="filterDropdown('kecamatan')" />
+                                                <ul class="max-h-40 overflow-y-auto" id="kecamatan-list">
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('kecamatan', 'Kec. Banda Aceh')">
+                                                        Kec. Banda Aceh
+                                                    </li>
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('kecamatan', 'Kec. Meuraxa')">
+                                                        Kec. Meuraxa
+                                                    </li>
+                                                    <!-- Opsi batalkan pilihan -->
+                                                    <li class="p-2 bg-red-100 text-red-600 font-bold hover:bg-red-200 cursor-pointer"
+                                                        onclick="clearOption('kecamatan')">
+                                                        Batalkan Pilihan
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- Input Desa -->
+                                        <div class="relative">
+                                            <label for="desa" class="block text-sm font-medium text-gray-700 mb-2">
+                                                Desa
+                                            </label>
+                                            <div class="relative">
+                                                <input id="desa" type="text" placeholder="-- Pilih Desa --"
+                                                    class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                                    onclick="toggleDropdown('desa')" readonly />
+                                                <i id="desa-icon"
+                                                    class="bx bx-chevron-down absolute top-3 right-4 text-gray-500 text-2xl transition-transform duration-300"></i>
+                                            </div>
+                                            <div id="desa-dropdown"
+                                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-md mt-1 hidden opacity-0 transform scale-95 transition-all duration-300">
+                                                <ul class="max-h-40 overflow-y-auto" id="desa-list">
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('desa', 'Desa Blang Oi')">
+                                                        Desa Blang Oi
+                                                    </li>
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('desa', 'Desa Lampaseh')">
+                                                        Desa Lampaseh
+                                                    </li>
+                                                    <!-- Opsi batalkan pilihan -->
+                                                    <li class="p-2 bg-red-100 text-red-600 font-bold hover:bg-red-200 cursor-pointer"
+                                                        onclick="clearOption('desa')">
+                                                        Batalkan Pilihan
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- Input Jenjang Pendidikan -->
+                                        <div class="relative">
+                                            <label for="jenjang"
+                                                class="block text-sm font-medium text-gray-700 mb-2">
+                                                Jenjang Pendidikan
+                                            </label>
+                                            <div class="relative">
+                                                <input id="jenjang" type="text"
+                                                    placeholder="-- Pilih Jenjang Pendidikan --"
+                                                    class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                                    onclick="toggleDropdown('jenjang')" readonly />
+                                                <i id="jenjang-icon"
+                                                    class="bx bx-chevron-down absolute top-3 right-4 text-gray-500 text-2xl transition-transform duration-300"></i>
+                                            </div>
+                                            <div id="jenjang-dropdown"
+                                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-md mt-1 hidden opacity-0 transform scale-95 transition-all duration-300">
+                                                <ul class="max-h-40 overflow-y-auto" id="jenjang-list">
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('jenjang', 'SD')">
+                                                        SD
+                                                    </li>
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('jenjang', 'SMP')">
+                                                        SMP
+                                                    </li>
+                                                    <li class="p-2 hover:bg-gray-100 cursor-pointer"
+                                                        onclick="selectOption('jenjang', 'SMA')">
+                                                        SMA
+                                                    </li>
+                                                    <!-- Opsi batalkan pilihan -->
+                                                    <li class="p-2 bg-red-100 text-red-600 font-bold hover:bg-red-200 cursor-pointer"
+                                                        onclick="clearOption('jenjang')">
+                                                        Batalkan Pilihan
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        const dropdownStates = {}; // Track dropdown states dynamically
+
+                                        function toggleDropdown(id) {
+                                            // Close all dropdowns first
+                                            closeAllDropdowns();
+
+                                            const dropdown = document.getElementById(`${id}-dropdown`);
+                                            const icon = document.getElementById(`${id}-icon`);
+
+                                            const isVisible = dropdownStates[id];
+                                            dropdownStates[id] = !isVisible;
+
+                                            if (!isVisible) {
+                                                dropdown.classList.remove("hidden", "opacity-0", "scale-95");
+                                                dropdown.classList.add("opacity-100", "scale-100");
+                                                icon.classList.add("rotate-180");
+                                            } else {
+                                                dropdown.classList.add("opacity-0", "scale-95");
+                                                dropdown.classList.remove("opacity-100", "scale-100");
+                                                icon.classList.remove("rotate-180");
+                                            }
+                                        }
+
+                                        function closeAllDropdowns() {
+                                            // Close all dropdowns and reset icon states
+                                            const dropdowns = document.querySelectorAll('[id$="-dropdown"]');
+                                            const icons = document.querySelectorAll('[id$="-icon"]');
+
+                                            dropdowns.forEach(dropdown => {
+                                                dropdown.classList.add("hidden", "opacity-0", "scale-95");
+                                                dropdown.classList.remove("opacity-100", "scale-100");
+                                            });
+
+                                            icons.forEach(icon => {
+                                                icon.classList.remove("rotate-180");
+                                            });
+
+                                            // Reset dropdown states
+                                            Object.keys(dropdownStates).forEach(key => {
+                                                dropdownStates[key] = false;
+                                            });
+                                        }
+
+                                        function selectOption(id, value) {
+                                            document.getElementById(id).value = value;
+                                            closeAllDropdowns(); // Close dropdown after selection
+                                        }
+
+                                        function filterDropdown(id) {
+                                            const input = document.getElementById(`${id}-dropdown`).querySelector("input");
+                                            const filter = input ? input.value.toLowerCase() : "";
+                                            const listItems = document.getElementById(`${id}-list`).children;
+
+                                            Array.from(listItems).forEach(item => {
+                                                item.style.display = item.innerText.toLowerCase().includes(filter) ? "block" : "none";
+                                            });
+                                        }
+
+                                        function clearOption(id) {
+                                            document.getElementById(id).value = ""; // Reset value
+                                            closeAllDropdowns(); // Close dropdown
+                                        }
+
+                                        // Close all dropdowns if clicked outside
+                                        document.addEventListener("click", (event) => {
+                                            if (!event.target.closest(".relative")) {
+                                                closeAllDropdowns();
+                                            }
+                                        });
+                                    </script>
+                                    {{-- button --}}
+                                    <div class="mt-3">
+                                        <button class="bg-blue-400 w-full p-2 rounded-md">Cari sekarang</button>
+                                    </div>
+                                </div>
