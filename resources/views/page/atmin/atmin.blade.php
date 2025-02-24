@@ -102,103 +102,117 @@
                     </div>
                 </nav>
                 {{-- dashboard content --}}
-                <div id="dashboard-content" class="main-content p-5">
-                    <div class="w-full h-full">
-                        {{-- Statistik Utama --}}
-                        <div class="grid grid-cols-2 gap-6 mb-6">
-                            <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-xl shadow-lg">
-                                <div class="flex justify-between items-center text-white">
-                                    <div>
-                                        <p class="text-lg font-semibold opacity-90">Total Admin</p>
-                                        <p class="text-4xl font-bold mt-2">{{ $adminCount ?? '0' }}</p>
-                                    </div>
-                                    <div class="bg-white/20 p-4 rounded-lg">
-                                        <i class='bx bx-shield-quarter text-3xl'></i>
-                                    </div>
-                                </div>
-                            </div>
+<div id="dashboard-content" class="main-content p-5">
+    <div class="w-full h-full">
 
-                            <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 p-6 rounded-xl shadow-lg">
-                                <div class="flex justify-between items-center text-white">
-                                    <div>
-                                        <p class="text-lg font-semibold opacity-90">Total Users</p>
-                                        <p class="text-4xl font-bold mt-2">{{ $userCount ?? '0' }}</p>
-                                    </div>
-                                    <div class="bg-white/20 p-4 rounded-lg">
-                                        <i class='bx bx-user text-3xl'></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- Total Sekolah per Jenjang --}}
-                        <div class="grid grid-cols-4 gap-4 mb-6">
-                            <div class="bg-blue-50 p-4 rounded-xl">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-blue-600 bg-blue-100 p-2 rounded-lg">
-                                        <i class='bx bxs-graduation text-xl'></i>
-                                    </span>
-                                    <span class="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded-full">TK</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-700 mt-2">{{ $totalSekolahTK ?? 0 }}</h4>
-                                <p class="text-sm text-gray-600">Total Sekolah TK</p>
-                            </div>
-
-                            <div class="bg-green-50 p-4 rounded-xl">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-green-600 bg-green-100 p-2 rounded-lg">
-                                        <i class='bx bxs-school text-xl'></i>
-                                    </span>
-                                    <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">SD</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-700 mt-2">{{ $totalSekolahSD ?? 0 }}</h4>
-                                <p class="text-sm text-gray-600">Total Sekolah SD</p>
-                            </div>
-
-                            <div class="bg-yellow-50 p-4 rounded-xl">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-yellow-600 bg-yellow-100 p-2 rounded-lg">
-                                        <i class='bx bxs-school text-xl'></i>
-                                    </span>
-                                    <span class="text-xs font-medium text-yellow-600 bg-yellow-100 px-2 py-1 rounded-full">SMP</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-700 mt-2">{{ $totalSekolahSMP ?? 0 }}</h4>
-                                <p class="text-sm text-gray-600">Total Sekolah SMP</p>
-                            </div>
-
-                            <div class="bg-purple-50 p-4 rounded-xl">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-purple-600 bg-purple-100 p-2 rounded-lg">
-                                        <i class='bx bxs-school text-xl'></i>
-                                    </span>
-                                    <span class="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-1 rounded-full">SMA/SMK</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-700 mt-2">{{ $totalSekolahSMA ?? 0 }}</h4>
-                                <p class="text-sm text-gray-600">Total Sekolah SMA/SMK</p>
-                            </div>
-                        </div>
-
-                        {{-- Grafik Analisis --}}
-                        <div class="grid grid-cols-1 gap-6 mb-6">
-                            <div class="bg-white p-6 rounded-xl shadow-lg">
-                                <h2 class="text-xl font-bold text-gray-800 mb-6">Distribusi Pengguna</h2>
-                                <div class="h-64">
-                                    <canvas id="userChart" class="w-full"></canvas>
-                                </div>
-                                <div class="mt-6 pt-6 border-t grid grid-cols-2 gap-4">
-                                    <div class="text-center">
-                                        <p class="text-sm text-gray-600">Total Admin</p>
-                                        <p class="text-2xl font-bold text-blue-600 mt-1">{{ $adminCount ?? '0' }}</p>
-                                    </div>
-                                    <div class="text-center">
-                                        <p class="text-sm text-gray-600">Total User</p>
-                                        <p class="text-2xl font-bold text-green-600 mt-1">{{ $userCount ?? '0' }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        {{-- Statistik Utama --}}
+        <div class="grid grid-cols-2 gap-6 mb-6">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-xl shadow-lg">
+                <div class="flex justify-between items-center text-white">
+                    <div>
+                        <p class="text-lg font-semibold opacity-90">Total Admin</p>
+                        <p class="text-4xl font-bold mt-2">0</p>
+                    </div>
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <i class='bx bx-shield-quarter text-3xl'></i>
                     </div>
                 </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 p-6 rounded-xl shadow-lg">
+                <div class="flex justify-between items-center text-white">
+                    <div>
+                        <p class="text-lg font-semibold opacity-90">Total Users</p>
+                        <p class="text-4xl font-bold mt-2">0</p>
+                    </div>
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <i class='bx bx-user text-3xl'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Total Sekolah per Jenjang --}}
+        <div class="grid grid-cols-5 gap-4 mb-6">
+            <div class="bg-blue-50 p-4 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <span class="text-blue-600 bg-blue-100 p-2 rounded-lg">
+                        <i class='bx bxs-graduation text-xl'></i>
+                    </span>
+                    <span class="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded-full">TK</span>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-700 mt-2">0</h4>
+                <p class="text-sm text-gray-600">Total Sekolah TK</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <span class="text-green-600 bg-green-100 p-2 rounded-lg">
+                        <i class='bx bxs-school text-xl'></i>
+                    </span>
+                    <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">SD</span>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-700 mt-2">0</h4>
+                <p class="text-sm text-gray-600">Total Sekolah SD</p>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <span class="text-yellow-600 bg-yellow-100 p-2 rounded-lg">
+                        <i class='bx bxs-school text-xl'></i>
+                    </span>
+                    <span class="text-xs font-medium text-yellow-600 bg-yellow-100 px-2 py-1 rounded-full">SMP</span>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-700 mt-2">0</h4>
+                <p class="text-sm text-gray-600">Total Sekolah SMP</p>
+            </div>
+
+            <div class="bg-purple-50 p-4 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <span class="text-purple-600 bg-purple-100 p-2 rounded-lg">
+                        <i class='bx bxs-school text-xl'></i>
+                    </span>
+                    <span class="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-1 rounded-full">SMA</span>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-700 mt-2">0</h4>
+                <p class="text-sm text-gray-600">Total Sekolah SMA</p>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <span class="text-red-600 bg-red-100 p-2 rounded-lg">
+                        <i class='bx bxs-school text-xl'></i>
+                    </span>
+                    <span class="text-xs font-medium text-red-600 bg-red-100 px-2 py-1 rounded-full">SMK</span>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-700 mt-2">0</h4>
+                <p class="text-sm text-gray-600">Total Sekolah SMK</p>
+            </div>
+        </div>
+
+        {{-- Grafik Analisis --}}
+        <div class="grid grid-cols-1 gap-6 mb-6">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h2 class="text-xl font-bold text-gray-800 mb-6">Distribusi Pengguna</h2>
+                <div class="h-64">
+                    <canvas id="userChart" class="w-full"></canvas>
+                </div>
+                <div class="mt-6 pt-6 border-t grid grid-cols-2 gap-4">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600">Total Admin</p>
+                        <p class="text-2xl font-bold text-blue-600 mt-1">0</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600">Total User</p>
+                        <p class="text-2xl font-bold text-green-600 mt-1">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
                 {{-- sekolah content --}}
                 <div id="sekolah-content" class="main-content p-5 hidden">

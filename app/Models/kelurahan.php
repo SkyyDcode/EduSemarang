@@ -27,4 +27,17 @@ class Kelurahan extends Model
     {
         return $this->kelurahan;
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($kelurahan) {
+            if (self::where('kelurahan', $kelurahan->kelurahan)
+                ->where('kecamatan_id', $kelurahan->kecamatan_id)
+                ->exists()) {
+                throw new \Exception('Kelurahan sudah ada di kecamatan ini.');
+            }
+        });
+    }
 }
